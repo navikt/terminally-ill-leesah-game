@@ -54,7 +54,10 @@ class QuizApplication(private val teamName: String, database: Database? = null):
     }
 
     private fun handleNAV(question: Question) {
-        answer(question.category, question.messageId, "https://www.detsombetyrnoe.no/")
+        var answerMap = hashMapOf<String, String>()
+        answerMap.put("På hvilken nettside finner man informasjon om rekruttering til NAV IT?", "https://www.detsombetyrnoe.no/")
+        answerMap.put("Hva heter applikasjonsplattformen til NAV?", "NAIS")
+        answer(question.category, question.messageId, answerMap[(question.question)]!!)
     }
 
 
