@@ -40,13 +40,13 @@ class Database(private val dataSource: DataSource = DataSourceBuilder(System.get
 internal class DataSourceBuilder(env: Map<String, String>) {
 
     private val hikariConfig = HikariConfig().apply {
-        jdbcUrl = env["DATABASE_JDBC_URL"] ?: String.format(
+        jdbcUrl = env["NAIS_DATABASE_TERMINALLY_ILL_LEESAH_QUIZ_MYDB_URL"] ?: String.format(
             "jdbc:postgresql://%s:%s/%s",
-            requireNotNull(env["DATABASE_HOST"]) { "database host must be set if jdbc url is not provided" },
-            requireNotNull(env["DATABASE_PORT"]) { "database port must be set if jdbc url is not provided" },
-            requireNotNull(env["DATABASE_DATABASE"]) { "database name must be set if jdbc url is not provided" })
-        username = requireNotNull(env["DATABASE_USERNAME"]) { "databasebrukernavn må settes" }
-        password = requireNotNull(env["DATABASE_PASSWORD"]) { "databasepassord må settes" }
+            requireNotNull(env["NAIS_DATABASE_TERMINALLY_ILL_LEESAH_QUIZ_MYDB_HOST"]) { "database host must be set if jdbc url is not provided" },
+            requireNotNull(env["NAIS_DATABASE_TERMINALLY_ILL_LEESAH_QUIZ_MYDB_PORT"]) { "database port must be set if jdbc url is not provided" },
+            requireNotNull(env["NAIS_DATABASE_TERMINALLY_ILL_LEESAH_QUIZ_MYDB_DATABASE"]) { "database name must be set if jdbc url is not provided" })
+        username = requireNotNull(env["NAIS_DATABASE_TERMINALLY_ILL_LEESAH_QUIZ_MYDB_USERNAME"]) { "databasebrukernavn må settes" }
+        password = requireNotNull(env["NAIS_DATABASE_TERMINALLY_ILL_LEESAH_QUIZ_MYDB_PASSWORD"]) { "databasepassord må settes" }
         maximumPoolSize = 1
         connectionTimeout = Duration.ofSeconds(30).toMillis()
         maxLifetime = Duration.ofMinutes(30).toMillis()
