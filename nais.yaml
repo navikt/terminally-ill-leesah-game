@@ -4,6 +4,6 @@ metadata:
   name: terminally-ill-leesah-quiz
   namespace: leesah-quiz
   labels:
-    team: terminally-ill
+    team: leesah-quiz
 spec:
   image: ghcr.io/navikt/imagename:tag
