@@ -22,7 +22,7 @@ interface Message {
     }
 }
 
-data class Question private constructor(
+data class  Question private constructor(
     val messageId: String = UUID.randomUUID().toString(),
     val type: MessageType,
     val category: String,

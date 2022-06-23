@@ -7,10 +7,9 @@ import org.junit.jupiter.api.Test
 
 internal class QuizApplicationTest {
 
-
     @Test
     fun `håndterer team-registration`() {
-        val teamNavn = "mitt-team-navn"
+        val teamNavn = "leesah-quiz"
         val qa = QuizApplication(teamNavn)
         qa.handle(Question(category = "team-registration", question =  "register new team..."))
         val messages = qa.messages()
