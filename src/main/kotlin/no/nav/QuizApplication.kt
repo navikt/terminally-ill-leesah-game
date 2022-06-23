@@ -11,7 +11,7 @@ import no.nav.rapid.Question
  *
  * Her skal teamet bygge ut funksjonalitet for å løse oppgavene i leesah-game.
  */
-class QuizApplication(private val teamName: String, database: Database? = null): QuizParticipant(teamName) {
+class QuizApplication(private val teamName: String, private val database: Database? = null): QuizParticipant(teamName) {
 
     override fun handle(question: Question) {
         logger.log(question)
@@ -19,7 +19,7 @@ class QuizApplication(private val teamName: String, database: Database? = null):
         if (question.category == "arithmetic") handleArithmetic(question)
         if (question.category == "make-ingress") handleIngress(question)
         if (question.category == "NAV") handleNAV(question)
-
+        if (question.category == "deduplication") handleDeduplication(question, database)
     }
 
 
@@ -58,6 +58,12 @@ class QuizApplication(private val teamName: String, database: Database? = null):
         answerMap.put("På hvilken nettside finner man informasjon om rekruttering til NAV IT?", "https://www.detsombetyrnoe.no/")
         answerMap.put("Hva heter applikasjonsplattformen til NAV?", "NAIS")
         answer(question.category, question.messageId, answerMap[(question.question)]!!)
+    }
+
+    private fun handleDeduplication(question: Question, database: Database?) {
+        if (database!!.flag()) return;
+        database!!.settFlag()
+        answer(question.category, question.messageId, "you won't dupe me!")
     }
 
 
