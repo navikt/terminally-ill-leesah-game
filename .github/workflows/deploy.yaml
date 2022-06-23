@@ -16,7 +16,7 @@ jobs:
     name: set image name
     runs-on: ubuntu-latest
     steps:
-      - name: create docker tag
+      name: create docker tag
         run: echo "TAG=${ECHO ${{ github.sha }} | cut -c1-7)" >> $GITHUB_ENV
       outputs:
         image: ghcr.io/${{github.repository }}/terminally-ill-leesah-quiz:${{ env.TAG}}
