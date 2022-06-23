@@ -28,8 +28,8 @@ fun main() {
     val config = Config.fromEnv()
     logger = LoggerFactory.getLogger(config.appName)
 // Her må du kanskje ukommentere for å løse en oppgave ;)
-    val database = Database()
-    database.migrate()
+//    val database = Database()
+//    database.migrate()
     val app = QuizApplication(config.appName)
     RapidServer(config, ::ktorServer, app).startBlocking()
 }
