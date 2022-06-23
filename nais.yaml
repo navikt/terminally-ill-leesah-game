@@ -16,6 +16,8 @@ spec:
   replicas:
     max: 1
     min: 1
+  ingresses:
+    - https://terminally-ill-leesah-quiz.dev.intern.nav.no
   kafka:
     pool: nav-dev
   prometheus:

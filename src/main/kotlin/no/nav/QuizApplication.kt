@@ -17,6 +17,7 @@ class QuizApplication(private val teamName: String, database: Database? = null):
         logger.log(question)
         if (question.category == "team-registration") handleRegisterTeam(question)
         if (question.category == "arithmetic") handleArithmetic(question)
+        if (question.category == "make-ingress") handleIngress(question)
 
     }
 
@@ -45,6 +46,10 @@ class QuizApplication(private val teamName: String, database: Database? = null):
         var lists = question.question.split(" ")
         var myAnswer = operatorFromChar(lists[1].toCharArray()[0]).invoke(lists[0].toInt(), lists[2].toInt())
         answer(question.category, question.messageId, myAnswer.toString())
+    }
+
+    private fun handleIngress(question: Question) {
+        answer(question.category, question.messageId,"https://terminally-ill-leesah-quiz.dev.intern.nav.no")
     }
 
 
