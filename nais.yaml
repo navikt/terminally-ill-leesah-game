@@ -7,3 +7,19 @@ metadata:
     team: leesah-quiz
 spec:
   image: ghcr.io/navikt/imagename:tag
+  strategy:
+    type: Recreate
+  liveness:
+    initialdelay: 30
+    path: isready
+  replicas:
+    max: 1
+    min: 1
+  kafka:
+    pool: nav-dev
+  prometheus:
+    enabled: true
+    path: /metrics
+  env:
+    - name: QUIZ_TOPIC
+      value: "leesah-quiz.leesah-rapid-v2"
