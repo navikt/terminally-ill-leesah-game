@@ -18,6 +18,7 @@ class QuizApplication(private val teamName: String, database: Database? = null):
         if (question.category == "team-registration") handleRegisterTeam(question)
         if (question.category == "arithmetic") handleArithmetic(question)
         if (question.category == "make-ingress") handleIngress(question)
+        if (question.category == "NAV") handleNAV(question)
 
     }
 
@@ -50,6 +51,10 @@ class QuizApplication(private val teamName: String, database: Database? = null):
 
     private fun handleIngress(question: Question) {
         answer(question.category, question.messageId,"https://terminally-ill-leesah-quiz.dev.intern.nav.no")
+    }
+
+    private fun handleNAV(question: Question) {
+        answer(question.category, question.messageId, "https://www.detsombetyrnoe.no/")
     }
 
 
