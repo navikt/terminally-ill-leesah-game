@@ -1,0 +1,9 @@
+apiVersion: "nais.io/v1alpha1"
+kind: "Application"
+metadata:
+  name: terminally-ill-leesah-quiz
+  namespace: leesah-quiz
+  labels:
+    team: terminally-ill
+spec:
+  image: ghcr.io/navikt/imagename:tag
