@@ -16,11 +16,10 @@ jobs:
     name: set image name
     runs-on: ubuntu-latest
     steps:
-    - name: create docker tag
-      run: echo "TAG=$(echo $GITHUB_SHA | cut -c1-7)" >> $GITHUB_ENV
+      - name: create docker tag
+        run: echo "TAG=$(echo ${{ github.sha }} | cut -c1-7)" >> $GITHUB_ENV
     outputs:
-      image: ghcr.io/${{github.repository }}/terminally-ill-leesah-quiz:${{ env.TAG}}
-
+      image: ghcr.io/${{ github.repository }}/terminally-ill-leesah-quiz:${{ env.TAG }}
 
   build:
     name: Build and push Docker container
@@ -32,7 +31,6 @@ jobs:
       - uses: actions/setup-java@v1
         with:
           java-version: '17.x'
-      - uses: docker/build-push-action@v2
       - name: test and build
         run: ./gradlew build
       - name: build docker image
