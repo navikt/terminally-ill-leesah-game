@@ -6,7 +6,8 @@ metadata:
   labels:
     team: leesah-quiz
 spec:
-  image: ghcr.io/navikt/imagename:tag
+  image: {{image}}
+  port: 8080
   strategy:
     type: Recreate
   liveness:
